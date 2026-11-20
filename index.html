@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Printer Offline, Spooler Errors and Other Messages: What They Mean, by Derek Roga</title>
+<meta name="description" content="The printer error messages people see most, translated into plain language: what each one actually means, what fixes it, and when a test sheet tells you more than the error does. By Derek Roga of Test Print Page.">
+<style>
+body { font-family: Helvetica, Arial, sans-serif; margin: 0; color: #24292f; background: #fafbfc; }
+main { max-width: 700px; margin: 0 auto; padding: 38px 20px 62px; }
+h1 { font-size: 1.75rem; line-height: 1.28; }
+h2 { font-size: 1.18rem; margin-top: 2em; }
+p, li { font-size: 1rem; line-height: 1.68; }
+a { color: #0969da; }
+.byline { color: #57606a; font-size: 0.92rem; }
+footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid #d0d7de; color: #57606a; font-size: 0.88rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>Printer Offline, Spooler Errors and Other Messages: What They Mean</h1>
+<p class="byline">By Derek Roga, web developer in Vilnius, Lithuania, founder of Test Print Page and Essence Technologies.</p>
+
+<p>Printer error messages are written for engineers, then shown to everyone else. The result is that people replace cartridges for network faults and reinstall drivers for paper faults. After years of support work, these are the messages I translate most often, what each one really means, and the fix that actually matches it. One theme runs through all of them: when the printer itself can print a test sheet from its own panel, the hardware is alive, and the problem sits between the computer and the printer, not inside it.</p>
+
+<h2>"Printer is offline"</h2>
+<p>This means your computer cannot reach the printer, full stop. It says nothing about the printer's health. On Wi-Fi printers the usual cause is the printer quietly joining a different network band, or picking up a new IP address after a router restart while the computer still knocks on the old one. Print a network status sheet from the printer's own menu: if it prints and shows an address, the printer is fine. Re-add the printer in your system settings rather than fighting the stale entry. For USB printers, offline almost always means the cable, the port, or a sleeping printer the system failed to wake.</p>
+
+<h2>"Print spooler service is not running" (Windows)</h2>
+<p>The spooler is the queue manager that holds your documents before sending them. When it crashes, everything stops, including printers that are perfectly healthy. Restarting the service clears most cases; a stuck corrupt job in the queue is the usual trigger, so clear the queue folder if the error returns immediately. A spooler that dies every time you print one particular document is telling you that document is the fault, often a damaged PDF, not the printer.</p>
+
+<h2>"Error printing" with no detail</h2>
+<p>The least helpful message in printing usually means the job reached the printer and the printer rejected it: wrong paper size requested, a tray empty for the size asked, or a driver mismatch after a system update. Set the document's paper size to match the tray, A4 or Letter, and try one page. If a driver update arrived recently, reinstalling the manufacturer's driver, not the generic one the system picked, resolves a surprising share of these.</p>
+
+<h2>"Low ink" or "Low toner" that will not clear</h2>
+<p>Printers estimate levels; they do not measure them. An inkjet warning can appear with a third of the cartridge left, and a chipped third party cartridge can read empty from day one. The honest test is output, not the gauge: print the colour test sheet from <a href="https://testprintpage.net/">Test Print Page</a> and look at the bands. Strong, complete bands mean keep printing and ignore the warning. A channel that is genuinely fading will show it on the sheet long before text becomes unreadable.</p>
+
+<h2>"Paper jam" when there is no jam</h2>
+<p>A jam message with clean paper paths means a sensor saw something it did not expect: a torn corner left from the last real jam, dust on a sensor, or paper loaded slightly skewed so an edge trips the flag. Open every door, shine a light along the path, and check the rear access panel, where scraps hide. Reload the stack squarely against the guides. If the message survives all that, the sensor itself is failing, and that is a repair, not a setting.</p>
+
+<h2>When the error message is the least useful witness</h2>
+<p>Software errors describe the conversation between computer and printer. They say nothing about print quality. A printer can report "Ready", accept every job, and still print faded, streaked output because its nozzles are clogged. That is the gap test sheets fill: five minutes with the sheets at <a href="https://testprintpage.net/">Test Print Page</a>, Quick first, then the sheet matching your symptom, separates "the computer cannot talk to the printer" from "the printer cannot print well", and the two problems have almost no fixes in common.</p>
+
+<h2>A working order for any mystery fault</h2>
+<p>First, print something from the printer's own panel, a status or test page. If it cannot, the fault is hardware or consumables. If it can, the hardware is innocent: check the connection, then the queue, then the driver, in that order. Only when all three are clean should you suspect the document itself. Following that order has ended most "broken printer" calls I have taken in under ten minutes, with nothing bought and nothing reinstalled.</p>
+
+<footer>
+<p>Derek Roga builds free, focused web tools at Essence Technologies, a Vilnius studio he founded in 2019. His best known tool is Test Print Page, free printer test sheets matched to your symptom.</p>
+</footer>
+</main>
+</body>
+</html>
